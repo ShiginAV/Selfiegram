@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class SelfieDetailViewController: UIViewController {
 
@@ -14,6 +15,7 @@ class SelfieDetailViewController: UIViewController {
     @IBOutlet var selfieNameField: UITextField!
     @IBOutlet var dateCreatedLabel: UILabel!
     @IBOutlet var selfieImageView: UIImageView!
+    @IBOutlet var mapView: MKMapView!
     
     //MARK: - Properties
     let dateFormatter: DateFormatter = {
@@ -26,18 +28,18 @@ class SelfieDetailViewController: UIViewController {
     
     var selfie: Selfie? {
         didSet {
-            configureView()
+            configureViews()
         }
     }
 
     //MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        configureViews()
     }
 
     //MARK: - Methods
-    func configureView() {
+    func configureViews() {
         
         guard let selfie = selfie else { return }
         guard let selfieNameField = selfieNameField else { return }
@@ -47,6 +49,11 @@ class SelfieDetailViewController: UIViewController {
         selfieNameField.text = selfie.title
         dateCreatedLabel.text = dateFormatter.string(from: selfie.created)
         selfieImageView.image = selfie.image
+        
+        if let position = selfie.position {
+            mapView.setCenter(position.location.coordinate, animated: false)
+            mapView.isHidden = false
+        }
     }
     
     //MARK: - Actions
@@ -59,6 +66,20 @@ class SelfieDetailViewController: UIViewController {
         
         selfie.title = text
         try? SelfieStore.shared.save(selfie: selfie)
+    }
+    
+    @IBAction func expandMap(_ sender: UITapGestureRecognizer) {
+        
+        if let coordinate = selfie?.position?.location {
+            let options = [
+                MKLaunchOptionsMapCenterKey : NSValue(mkCoordinate: coordinate.coordinate),
+                MKLaunchOptionsMapTypeKey : NSNumber(value: MKMapType.mutedStandard.rawValue)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinate.coordinate, addressDictionary: nil)
+            let item = MKMapItem(placemark: placemark)
+            item.name = selfie?.title
+            item.openInMaps(launchOptions: options)
+        }
     }
 }
 

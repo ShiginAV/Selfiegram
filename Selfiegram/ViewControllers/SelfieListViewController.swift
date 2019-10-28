@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SelfieListViewController: UITableViewController {
 
     //MARK: - Properties
     var detailViewController: SelfieDetailViewController? = nil
     var selfies = [Selfie]()
+    var lastLocation: CLLocation?
+    let locationManager = CLLocationManager()
     
     let timeIntervalFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
@@ -36,6 +39,9 @@ class SelfieListViewController: UITableViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count - 1] as! UINavigationController).topViewController as? SelfieDetailViewController
         }
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +85,22 @@ class SelfieListViewController: UITableViewController {
     
     @objc func createNewSelfie() {
         
+        //get location
+        lastLocation = nil
+        
+        switch CLLocationManager.authorizationStatus() {
+        case .denied, .restricted:
+            return
+            
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            
+        default:
+            break
+        }
+        locationManager.requestLocation()
+        
+        //set imagePicker
         let imagePicker = UIImagePickerController()
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -99,6 +121,10 @@ class SelfieListViewController: UITableViewController {
         
         let newSelfie = Selfie(title: "New Selfie")
         newSelfie.image = image
+        
+        if let location = lastLocation {
+            newSelfie.position = Selfie.Coordinate(location: location)
+        }
         
         do {
             try SelfieStore.shared.save(selfie: newSelfie)
@@ -173,5 +199,19 @@ extension SelfieListViewController: UIImagePickerControllerDelegate, UINavigatio
         newSelfieTaken(image: image)
         
         dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK: - CLLocationManagerDelegate
+extension SelfieListViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        lastLocation = locations.last
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+        showError(message: error.localizedDescription)
     }
 }

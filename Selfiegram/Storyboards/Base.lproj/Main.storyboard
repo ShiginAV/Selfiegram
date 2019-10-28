@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Selfie Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Zw-iK-tSW">
-                                <rect key="frame" x="16" y="104" width="343" height="30"/>
+                                <rect key="frame" x="16" y="104" width="268" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Yjz-kW-2We"/>
                                 </constraints>
@@ -43,7 +43,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnR-Sx-5O4">
-                                <rect key="frame" x="16" y="142" width="343" height="21"/>
+                                <rect key="frame" x="16" y="142" width="268" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="oHd-2k-pZt"/>
                                 </constraints>
@@ -52,21 +52,34 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qap-w9-iuo">
-                                <rect key="frame" x="16" y="171" width="343" height="591"/>
+                                <rect key="frame" x="16" y="179" width="343" height="583"/>
                             </imageView>
+                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="mutedStandard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80e-an-cIV">
+                                <rect key="frame" x="292" y="104" width="67" height="67"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="T6Y-VQ-eWB"/>
+                                    <constraint firstAttribute="width" constant="67" id="vqu-FI-9xB"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3dR-3B-auc" appends="YES" id="lwq-OR-slo"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="80e-an-cIV" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="16" id="4AZ-de-SLi"/>
                             <constraint firstItem="2Zw-iK-tSW" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="16" id="6Uq-Mw-hz9"/>
-                            <constraint firstItem="qap-w9-iuo" firstAttribute="top" secondItem="tnR-Sx-5O4" secondAttribute="bottom" constant="8" id="Cz6-6k-VFy"/>
+                            <constraint firstItem="qap-w9-iuo" firstAttribute="top" secondItem="80e-an-cIV" secondAttribute="bottom" constant="8" id="9km-iR-XKG"/>
                             <constraint firstItem="tnR-Sx-5O4" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="16" id="Jgi-Je-f3K"/>
                             <constraint firstItem="2Zw-iK-tSW" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="16" id="OZH-gj-aOk"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="qap-w9-iuo" secondAttribute="bottom" constant="16" id="Q7Z-3a-h02"/>
-                            <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="tnR-Sx-5O4" secondAttribute="trailing" constant="16" id="RY9-73-yeM"/>
                             <constraint firstItem="qap-w9-iuo" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="16" id="c6V-6y-brP"/>
+                            <constraint firstItem="80e-an-cIV" firstAttribute="leading" secondItem="tnR-Sx-5O4" secondAttribute="trailing" constant="8" id="ge6-hU-GUF"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="qap-w9-iuo" secondAttribute="trailing" constant="16" id="i18-Sg-B5s"/>
+                            <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="80e-an-cIV" secondAttribute="trailing" constant="16" id="ll9-ZK-cn1"/>
                             <constraint firstItem="tnR-Sx-5O4" firstAttribute="top" secondItem="2Zw-iK-tSW" secondAttribute="bottom" constant="8" id="tpl-n0-jEO"/>
-                            <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="2Zw-iK-tSW" secondAttribute="trailing" constant="16" id="zNu-Uc-fxM"/>
+                            <constraint firstItem="80e-an-cIV" firstAttribute="leading" secondItem="2Zw-iK-tSW" secondAttribute="trailing" constant="8" id="uHD-1J-nox"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
@@ -74,13 +87,19 @@
                     <navigationItem key="navigationItem" title="Selfie" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="dateCreatedLabel" destination="tnR-Sx-5O4" id="s2t-ut-AoP"/>
+                        <outlet property="mapView" destination="80e-an-cIV" id="aw7-HF-cru"/>
                         <outlet property="selfieImageView" destination="qap-w9-iuo" id="OwS-Oo-brj"/>
                         <outlet property="selfieNameField" destination="2Zw-iK-tSW" id="KCD-ET-8wc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3dR-3B-auc">
+                    <connections>
+                        <action selector="expandMap:" destination="JEX-9P-axG" id="sAD-zf-HP9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="709" y="129"/>
+            <point key="canvasLocation" x="708" y="128.57142857142858"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
