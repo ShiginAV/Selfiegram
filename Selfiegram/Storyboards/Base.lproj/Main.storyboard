@@ -158,11 +158,104 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Selfies" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Selfies" id="Zdf-7t-Un8">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" style="done" id="Y3M-Bl-CQg">
+                            <connections>
+                                <segue destination="VtO-0T-CyW" kind="show" id="syi-Cn-r8U"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="lVL-n3-qIm">
+            <objects>
+                <tableViewController title="Settings" id="VtO-0T-CyW" customClass="SettingsTableViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4oB-mG-vom">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="qha-P3-Vc8">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SJ0-Oc-K5o">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SJ0-Oc-K5o" id="6ks-w1-HwL">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od2-yq-X6y">
+                                                    <rect key="frame" x="16" y="11.666666666666664" width="111" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FkO-FL-fm5">
+                                                    <rect key="frame" x="308" y="6.6666666666666679" width="51" height="31.000000000000004"/>
+                                                    <connections>
+                                                        <action selector="locationSwitchToggled:" destination="VtO-0T-CyW" eventType="valueChanged" id="XCI-e0-uVP"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FkO-FL-fm5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="od2-yq-X6y" secondAttribute="trailing" constant="8" id="PMm-CJ-DVW"/>
+                                                <constraint firstItem="FkO-FL-fm5" firstAttribute="centerY" secondItem="6ks-w1-HwL" secondAttribute="centerY" id="Wws-4H-3rf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FkO-FL-fm5" secondAttribute="trailing" constant="2" id="gBs-7L-TIj"/>
+                                                <constraint firstItem="od2-yq-X6y" firstAttribute="centerY" secondItem="6ks-w1-HwL" secondAttribute="centerY" id="m1C-Ah-0YG"/>
+                                                <constraint firstItem="od2-yq-X6y" firstAttribute="leading" secondItem="6ks-w1-HwL" secondAttribute="leadingMargin" id="zpu-Ri-Ypd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2OI-WU-GuR">
+                                        <rect key="frame" x="0.0" y="71.666667938232422" width="375" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2OI-WU-GuR" id="Ied-UP-92v">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me at 10 am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6E-H8-i7o">
+                                                    <rect key="frame" x="16" y="11.666666666666664" width="155" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c9n-2n-2hT">
+                                                    <rect key="frame" x="308" y="6.6666666666666679" width="51" height="31.000000000000004"/>
+                                                    <connections>
+                                                        <action selector="reminderSwitchToggled:" destination="VtO-0T-CyW" eventType="valueChanged" id="KNc-ZH-Eq4"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="T6E-H8-i7o" firstAttribute="leading" secondItem="Ied-UP-92v" secondAttribute="leadingMargin" id="5l9-tm-BRN"/>
+                                                <constraint firstItem="c9n-2n-2hT" firstAttribute="centerY" secondItem="Ied-UP-92v" secondAttribute="centerY" id="7jX-RB-fNt"/>
+                                                <constraint firstItem="T6E-H8-i7o" firstAttribute="centerY" secondItem="Ied-UP-92v" secondAttribute="centerY" id="U6A-dj-Y6G"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="c9n-2n-2hT" secondAttribute="trailing" constant="2" id="W8p-G6-bZu"/>
+                                                <constraint firstItem="c9n-2n-2hT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="T6E-H8-i7o" secondAttribute="trailing" constant="8" id="nW7-J6-8O9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="VtO-0T-CyW" id="7F0-sa-nFj"/>
+                            <outlet property="delegate" destination="VtO-0T-CyW" id="Quv-yF-9IJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="qtp-Gy-UoF"/>
+                    <connections>
+                        <outlet property="locationSwitch" destination="FkO-FL-fm5" id="z5H-0w-740"/>
+                        <outlet property="reminderSwitch" destination="c9n-2n-2hT" id="cSQ-Tx-1tw"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GGD-lk-kpb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1506" y="-630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">

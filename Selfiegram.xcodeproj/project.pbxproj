@@ -16,6 +16,7 @@
 		110865C82360779E001938F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 110865C62360779E001938F9 /* LaunchScreen.storyboard */; };
 		110865D32360779E001938F9 /* SelfiegramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110865D22360779E001938F9 /* SelfiegramTests.swift */; };
 		110865DE2360779E001938F9 /* SelfiegramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110865DD2360779E001938F9 /* SelfiegramUITests.swift */; };
+		115C482123670DA6006293FC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C482023670DA6006293FC /* SettingsTableViewController.swift */; };
 		116071552361A84A0099796D /* SelfieStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116071542361A84A0099796D /* SelfieStore.swift */; };
 		116071572361B0F50099796D /* SelfieStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116071562361B0F50099796D /* SelfieStoreTests.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		110865D92360779E001938F9 /* SelfiegramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfiegramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		110865DD2360779E001938F9 /* SelfiegramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfiegramUITests.swift; sourceTree = "<group>"; };
 		110865DF2360779E001938F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		115C482023670DA6006293FC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		116071542361A84A0099796D /* SelfieStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieStore.swift; sourceTree = "<group>"; };
 		116071562361B0F50099796D /* SelfieStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 			children = (
 				110865BD2360779D001938F9 /* SelfieListViewController.swift */,
 				110865BF2360779D001938F9 /* SelfieDetailViewController.swift */,
+				115C482023670DA6006293FC /* SettingsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			files = (
 				110865BA2360779D001938F9 /* AppDelegate.swift in Sources */,
 				116071552361A84A0099796D /* SelfieStore.swift in Sources */,
+				115C482123670DA6006293FC /* SettingsTableViewController.swift in Sources */,
 				110865BC2360779D001938F9 /* SceneDelegate.swift in Sources */,
 				110865BE2360779D001938F9 /* SelfieListViewController.swift in Sources */,
 				110865C02360779D001938F9 /* SelfieDetailViewController.swift in Sources */,
