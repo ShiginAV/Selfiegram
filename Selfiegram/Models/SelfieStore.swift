@@ -71,7 +71,7 @@ final class SelfieStore {
     }
     
     //MARK: - Methods
-    func getImage(id: UUID) -> UIImage? {
+    fileprivate func getImage(id: UUID) -> UIImage? {
         
         if let image = imageCashe[id] {
             return image
@@ -87,7 +87,7 @@ final class SelfieStore {
         return image
     }
     
-    func setImage(id: UUID, image: UIImage?) throws {
+    fileprivate func setImage(id: UUID, image: UIImage?) throws {
         
         let destinationURL = documentsFolder.appendingPathComponent("\(id.uuidString)-image.jpg")
         
@@ -114,7 +114,7 @@ final class SelfieStore {
         try delete(id: selfie.id)
     }
     
-    func delete(id: UUID) throws {
+    private func delete(id: UUID) throws {
         
         let selfieDataFileName = "\(id.uuidString).json"
         let imageFileName = "\(id.uuidString)-image.jpg"

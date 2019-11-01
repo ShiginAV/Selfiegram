@@ -10,6 +10,8 @@ import UIKit
 
 struct Theme {
     
+    static let tintColor = UIColor(red: 0.56, green: 0.35, blue: 0.97, alpha: 1)
+    
     static func apply() {
         
         guard let headerFont = UIFont(familyName: "Lobster", size: UIFont.systemFontSize * 2) else {
@@ -21,8 +23,6 @@ struct Theme {
             print("Failed to load application font")
             return
         }
-        
-        let tintColor = UIColor(red: 0.56, green: 0.35, blue: 0.97, alpha: 1)
         
         let navigationBar = UINavigationBar.appearance()
         navigationBar.titleTextAttributes = [.font: headerFont]

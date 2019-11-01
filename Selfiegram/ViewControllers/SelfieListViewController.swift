@@ -172,19 +172,34 @@ class SelfieListViewController: UITableViewController {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        if editingStyle == .delete {
-            let selfieToRemove = selfies[indexPath.row]
+        let share = UIContextualAction(style: .normal, title: "Share") { (action, view, boolValue) in
+            boolValue(true)
             
+            guard let image = self.selfies[indexPath.row].image else {
+                self.showError(message: "Unable to share selfie without an image")
+                return
+            }
+            let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            self.present(activity, animated: true, completion: nil)
+        }
+        share.backgroundColor = Theme.tintColor
+        
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, boolValue) in
+            boolValue(true)
+            
+            let selfieToRemove = self.selfies[indexPath.row]
             do {
                 try SelfieStore.shared.delete(selfie: selfieToRemove)
-                selfies.remove(at: indexPath.row)
+                self.selfies.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             } catch {
-                showError(message: "Failed to delete \(selfieToRemove.title).")
+                self.showError(message: "Failed to delete \(selfieToRemove.title).")
             }
         }
+        
+        return UISwipeActionsConfiguration(actions: [delete, share])
     }
 }
 
