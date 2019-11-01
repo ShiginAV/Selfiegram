@@ -26,6 +26,12 @@
 	<string>We’ll use your location to add location info to your selfies</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>We use the library to save your sweet, sweet selfies.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Quicksand-Bold.otf</string>
+		<string>Lobster_1.3.otf</string>
+		<string>Quicksand-Regular.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -16,6 +16,11 @@
 		110865C82360779E001938F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 110865C62360779E001938F9 /* LaunchScreen.storyboard */; };
 		110865D32360779E001938F9 /* SelfiegramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110865D22360779E001938F9 /* SelfiegramTests.swift */; };
 		110865DE2360779E001938F9 /* SelfiegramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110865DD2360779E001938F9 /* SelfiegramUITests.swift */; };
+		1154F3B32369B7B50010A4B4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1154F3B22369B7B50010A4B4 /* Theme.swift */; };
+		1154F3B62369B80C0010A4B4 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1154F3B52369B80C0010A4B4 /* Extension+UIFont.swift */; };
+		1154F3C82369D33D0010A4B4 /* Lobster_1.3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1154F3C52369D33C0010A4B4 /* Lobster_1.3.otf */; };
+		1154F3CB2369D33D0010A4B4 /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1154F3C62369D33D0010A4B4 /* Quicksand-Bold.otf */; };
+		1154F3CE2369D33D0010A4B4 /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1154F3C72369D33D0010A4B4 /* Quicksand-Regular.otf */; };
 		115C482123670DA6006293FC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C482023670DA6006293FC /* SettingsTableViewController.swift */; };
 		116071552361A84A0099796D /* SelfieStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116071542361A84A0099796D /* SelfieStore.swift */; };
 		116071572361B0F50099796D /* SelfieStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116071562361B0F50099796D /* SelfieStoreTests.swift */; };
@@ -54,6 +59,11 @@
 		110865D92360779E001938F9 /* SelfiegramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfiegramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		110865DD2360779E001938F9 /* SelfiegramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfiegramUITests.swift; sourceTree = "<group>"; };
 		110865DF2360779E001938F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1154F3B22369B7B50010A4B4 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		1154F3B52369B80C0010A4B4 /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
+		1154F3C52369D33C0010A4B4 /* Lobster_1.3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster_1.3.otf; sourceTree = "<group>"; };
+		1154F3C62369D33D0010A4B4 /* Quicksand-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.otf"; sourceTree = "<group>"; };
+		1154F3C72369D33D0010A4B4 /* Quicksand-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.otf"; sourceTree = "<group>"; };
 		115C482023670DA6006293FC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		116071542361A84A0099796D /* SelfieStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieStore.swift; sourceTree = "<group>"; };
 		116071562361B0F50099796D /* SelfieStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieStoreTests.swift; sourceTree = "<group>"; };
@@ -108,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				1160714F2361A7B90099796D /* App */,
+				1154F3B42369B7BC0010A4B4 /* Extensions */,
+				1154F3B12369B78E0010A4B4 /* Utils */,
 				116071532361A8250099796D /* Models */,
 				116071502361A7EC0099796D /* ViewControllers */,
 				116071512361A8000099796D /* Storyboards */,
@@ -133,6 +145,32 @@
 				110865DF2360779E001938F9 /* Info.plist */,
 			);
 			path = SelfiegramUITests;
+			sourceTree = "<group>";
+		};
+		1154F3AA2369B6840010A4B4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1154F3C52369D33C0010A4B4 /* Lobster_1.3.otf */,
+				1154F3C62369D33D0010A4B4 /* Quicksand-Bold.otf */,
+				1154F3C72369D33D0010A4B4 /* Quicksand-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1154F3B12369B78E0010A4B4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1154F3B22369B7B50010A4B4 /* Theme.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1154F3B42369B7BC0010A4B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1154F3B52369B80C0010A4B4 /* Extension+UIFont.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1160714F2361A7B90099796D /* App */ = {
@@ -167,6 +205,7 @@
 		116071522361A8130099796D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1154F3AA2369B6840010A4B4 /* Fonts */,
 				110865C42360779E001938F9 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -286,7 +325,10 @@
 			files = (
 				110865C82360779E001938F9 /* LaunchScreen.storyboard in Resources */,
 				110865C52360779E001938F9 /* Assets.xcassets in Resources */,
+				1154F3C82369D33D0010A4B4 /* Lobster_1.3.otf in Resources */,
 				110865C32360779D001938F9 /* Main.storyboard in Resources */,
+				1154F3CE2369D33D0010A4B4 /* Quicksand-Regular.otf in Resources */,
+				1154F3CB2369D33D0010A4B4 /* Quicksand-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +359,8 @@
 				110865BC2360779D001938F9 /* SceneDelegate.swift in Sources */,
 				110865BE2360779D001938F9 /* SelfieListViewController.swift in Sources */,
 				110865C02360779D001938F9 /* SelfieDetailViewController.swift in Sources */,
+				1154F3B62369B80C0010A4B4 /* Extension+UIFont.swift in Sources */,
+				1154F3B32369B7B50010A4B4 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

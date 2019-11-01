@@ -31,7 +31,7 @@ class SelfieListViewController: UITableViewController {
     //MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupNavigationItem()
         loadSelfies()
         
