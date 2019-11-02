@@ -16,6 +16,7 @@
 		110865C82360779E001938F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 110865C62360779E001938F9 /* LaunchScreen.storyboard */; };
 		110865D32360779E001938F9 /* SelfiegramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110865D22360779E001938F9 /* SelfiegramTests.swift */; };
 		110865DE2360779E001938F9 /* SelfiegramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110865DD2360779E001938F9 /* SelfiegramUITests.swift */; };
+		1153C68B236C743200C4C591 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153C68A236C743200C4C591 /* CaptureViewController.swift */; };
 		1154F3B32369B7B50010A4B4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1154F3B22369B7B50010A4B4 /* Theme.swift */; };
 		1154F3B62369B80C0010A4B4 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1154F3B52369B80C0010A4B4 /* Extension+UIFont.swift */; };
 		1154F3C82369D33D0010A4B4 /* Lobster_1.3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1154F3C52369D33C0010A4B4 /* Lobster_1.3.otf */; };
@@ -59,6 +60,7 @@
 		110865D92360779E001938F9 /* SelfiegramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfiegramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		110865DD2360779E001938F9 /* SelfiegramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfiegramUITests.swift; sourceTree = "<group>"; };
 		110865DF2360779E001938F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1153C68A236C743200C4C591 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		1154F3B22369B7B50010A4B4 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		1154F3B52369B80C0010A4B4 /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
 		1154F3C52369D33C0010A4B4 /* Lobster_1.3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster_1.3.otf; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				110865BD2360779D001938F9 /* SelfieListViewController.swift */,
 				110865BF2360779D001938F9 /* SelfieDetailViewController.swift */,
 				115C482023670DA6006293FC /* SettingsTableViewController.swift */,
+				1153C68A236C743200C4C591 /* CaptureViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				116071552361A84A0099796D /* SelfieStore.swift in Sources */,
 				115C482123670DA6006293FC /* SettingsTableViewController.swift in Sources */,
 				110865BC2360779D001938F9 /* SceneDelegate.swift in Sources */,
+				1153C68B236C743200C4C591 /* CaptureViewController.swift in Sources */,
 				110865BE2360779D001938F9 /* SelfieListViewController.swift in Sources */,
 				110865C02360779D001938F9 /* SelfieDetailViewController.swift in Sources */,
 				1154F3B62369B80C0010A4B4 /* Extension+UIFont.swift in Sources */,
@@ -537,6 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDWT9V7JHG;
 				INFOPLIST_FILE = Selfiegram/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -555,6 +560,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDWT9V7JHG;
 				INFOPLIST_FILE = Selfiegram/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

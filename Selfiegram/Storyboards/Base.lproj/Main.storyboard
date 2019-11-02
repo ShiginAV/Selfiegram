@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -106,6 +106,78 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="708" y="128.57142857142858"/>
+        </scene>
+        <!--Selfie!-->
+        <scene sceneID="MJF-rf-mge">
+            <objects>
+                <viewController id="ubS-OC-d9v" customClass="CaptureViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zd8-xU-TeU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qhc-Rj-tyL" customClass="PreviewView" customModule="Selfiegram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6QD-xQ-Ecu">
+                                <rect key="frame" x="0.0" y="738" width="375" height="40"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LGP-Ga-6Rn">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to take a selfie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1e-yX-dOn">
+                                            <rect key="frame" x="116.33333333333333" y="9.6666666666666288" width="142.66666666666669" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="t1e-yX-dOn" firstAttribute="centerX" secondItem="LGP-Ga-6Rn" secondAttribute="centerX" id="lVw-ft-cmi"/>
+                                        <constraint firstItem="t1e-yX-dOn" firstAttribute="centerY" secondItem="LGP-Ga-6Rn" secondAttribute="centerY" id="mvG-RR-Pdd"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NMQ-WA-pZk"/>
+                                </constraints>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="wrl-8E-B4R" firstAttribute="bottom" secondItem="Qhc-Rj-tyL" secondAttribute="bottom" id="3bO-8j-Iwp"/>
+                            <constraint firstItem="6QD-xQ-Ecu" firstAttribute="leading" secondItem="wrl-8E-B4R" secondAttribute="leading" id="6OW-my-zuk"/>
+                            <constraint firstItem="Qhc-Rj-tyL" firstAttribute="leading" secondItem="wrl-8E-B4R" secondAttribute="leading" id="MNz-m7-svR"/>
+                            <constraint firstItem="wrl-8E-B4R" firstAttribute="trailing" secondItem="Qhc-Rj-tyL" secondAttribute="trailing" id="MQs-hN-SlN"/>
+                            <constraint firstItem="wrl-8E-B4R" firstAttribute="trailing" secondItem="6QD-xQ-Ecu" secondAttribute="trailing" id="wCD-JA-eqc"/>
+                            <constraint firstItem="wrl-8E-B4R" firstAttribute="bottom" secondItem="6QD-xQ-Ecu" secondAttribute="bottom" id="wPq-4B-YvJ"/>
+                            <constraint firstItem="Qhc-Rj-tyL" firstAttribute="top" secondItem="wrl-8E-B4R" secondAttribute="top" id="waa-3I-0MW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wrl-8E-B4R"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="LqE-Hv-4dW" appends="YES" id="V0G-cG-POm"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Selfie!" id="IvP-nm-0I0">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xm8-BT-wPW">
+                            <connections>
+                                <action selector="close:" destination="ubS-OC-d9v" id="SZz-5v-1xN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cameraPreview" destination="Qhc-Rj-tyL" id="S9p-dk-Gk1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tXh-38-d0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LqE-Hv-4dW">
+                    <connections>
+                        <action selector="takeSelfie:" destination="ubS-OC-d9v" id="chX-c8-NKU"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2202" y="129"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
@@ -261,7 +333,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGD-lk-kpb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="-630"/>
+            <point key="canvasLocation" x="1463" y="-630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -278,6 +350,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jFz-IG-j3N">
+            <objects>
+                <navigationController storyboardIdentifier="CaptureScene" automaticallyAdjustsScrollViewInsets="NO" id="rpF-OE-1YL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0yE-6g-J9F">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ubS-OC-d9v" kind="relationship" relationship="rootViewController" id="dA7-en-Dyg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zcu-0x-wDZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1462" y="129"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

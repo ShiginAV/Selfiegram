@@ -30,8 +30,8 @@ class SelfieListViewController: UITableViewController {
 
     //MARK: - ViewController methods
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
         setupNavigationItem()
         loadSelfies()
         
@@ -45,6 +45,7 @@ class SelfieListViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -65,10 +66,12 @@ class SelfieListViewController: UITableViewController {
     
     //MARK: - Methods
     func setupNavigationItem() {
+        
         navigationItem.rightBarButtonItem = addSelfieBarButtonItem
     }
     
     func showError(message: String) {
+        
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
@@ -76,6 +79,7 @@ class SelfieListViewController: UITableViewController {
     }
     
     func loadSelfies() {
+        
         do {
             selfies = try SelfieStore.shared.listSelfies().sorted(by: { $0.created > $1.created })
         } catch let error {
@@ -84,6 +88,7 @@ class SelfieListViewController: UITableViewController {
     }
     
     private func getLocation() {
+        
         let shouldGetLocation = UserDefaults.standard.bool(forKey: SettingsKey.saveLocation.rawValue)
         
         if shouldGetLocation {
@@ -107,20 +112,36 @@ class SelfieListViewController: UITableViewController {
         
         getLocation()
         
-        let imagePicker = UIImagePickerController()
+//        let imagePicker = UIImagePickerController()
+//
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//            imagePicker.sourceType = .camera
+//
+//            if UIImagePickerController.isCameraDeviceAvailable(.front) {
+//                imagePicker.cameraDevice = .front
+//            }
+//        } else {
+//            imagePicker.sourceType = .photoLibrary
+//        }
+//
+//        imagePicker.delegate = self
+//        present(imagePicker, animated: true, completion: nil)
         
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.sourceType = .camera
-            
-            if UIImagePickerController.isCameraDeviceAvailable(.front) {
-                imagePicker.cameraDevice = .front
-            }
-        } else {
-            imagePicker.sourceType = .photoLibrary
+        guard let navigation = storyboard?.instantiateViewController(identifier: "CaptureScene") as? UINavigationController else {
+            fatalError("Failed to create the capture view controller!")
+        }
+        guard let capture = navigation.viewControllers.first as? CaptureViewController else {
+            fatalError("Failed to create the capture view controller!")
         }
         
-        imagePicker.delegate = self
-        present(imagePicker, animated: true, completion: nil)
+        capture.completion = {(image: UIImage?) -> Void in
+            if let image = image {
+                self.newSelfieTaken(image: image)
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        present(navigation, animated: true, completion: nil)
     }
     
     func newSelfieTaken(image: UIImage) {
@@ -204,24 +225,24 @@ class SelfieListViewController: UITableViewController {
 }
 
 //MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
-extension SelfieListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage ?? info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            showError(message: "Couldn't get a picture from the image picker!")
-            return
-        }
-        newSelfieTaken(image: image)
-        
-        dismiss(animated: true, completion: nil)
-    }
-}
+//extension SelfieListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//    
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        
+//        dismiss(animated: true, completion: nil)
+//    }
+//    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        
+//        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage ?? info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+//            showError(message: "Couldn't get a picture from the image picker!")
+//            return
+//        }
+//        newSelfieTaken(image: image)
+//        
+//        dismiss(animated: true, completion: nil)
+//    }
+//}
 
 //MARK: - CLLocationManagerDelegate
 extension SelfieListViewController: CLLocationManagerDelegate {
